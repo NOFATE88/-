@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double get_oprand()                          //»ñÈ¡²Ù×÷Êı
+double get_oprand()                          //è·å–æ“ä½œæ•°
 {
 	double value;
 	scanf("%lf", &value);
 	return value;
 }
 
-char get_operator()                          //»ñÈ¡ËÄÔòÔËËã·û
+char get_operator()                          //è·å–å››åˆ™è¿ç®—ç¬¦
 {
 	char op;
 	do
@@ -18,7 +18,7 @@ char get_operator()                          //»ñÈ¡ËÄÔòÔËËã·û
 	return op;
 }
 
-int prior(char op1, char op2)              //ÅĞ¶ÏÔËËã·ûÓÅÏÈ¼¶
+int prior(char op1, char op2)              //åˆ¤æ–­è¿ç®—ç¬¦ä¼˜å…ˆçº§
 {
 	int flag;
 	if (op1 == '*' || op1 == '/')
@@ -31,7 +31,7 @@ int prior(char op1, char op2)              //ÅĞ¶ÏÔËËã·ûÓÅÏÈ¼¶
 	return flag;
 }
 
-double evaluates(double left, char op, double right)       //ËÄÔòÔËËã
+double evaluates(double left, char op, double right)       //å››åˆ™è¿ç®—
 {
 	{
 		switch (op)
@@ -43,9 +43,9 @@ double evaluates(double left, char op, double right)       //ËÄÔòÔËËã
 			if (right != 0)
 				return left / right;
 			else
-			{              //³ıÊıÎªÁã
-				printf("³ıÊı²»ºÏ·¨£¬¼ì²éÊÇ·ñÎªÁã\n");
-				exit(1);      //Ç¿ÖÆ½áÊø³ÌĞò
+			{              //é™¤æ•°ä¸ºé›¶
+				printf("é™¤æ•°ä¸åˆæ³•ï¼Œæ£€æŸ¥æ˜¯å¦ä¸ºé›¶\n");
+				exit(1);      //å¼ºåˆ¶ç»“æŸç¨‹åº
 			}
 		default:return 0.0;
 		}
@@ -56,12 +56,12 @@ double evaluates(double left, char op, double right)       //ËÄÔòÔËËã
 int main()
 {
 	double value1, value2, value3, result;
-	char op1, op2;                         //ËÄÔòÔËËã·û
+	char op1, op2;                         //å››åˆ™è¿ç®—ç¬¦
 	value1 = get_oprand();
 	op1 = get_operator();
 	value2 = get_oprand();
 	op2 = get_operator();
-	while (op2 != '\n')                    //Ã»ÓĞ½áÊøÊ±
+	while (op2 != '\n')                    //æ²¡æœ‰ç»“æŸæ—¶
 	{
 		value3 = get_oprand();
 		if (prior(op2, op1))
@@ -74,9 +74,9 @@ int main()
 		}
 		op2 = get_operator();
 	}
-	result = evaluates(value1, op1, value2);      //×îºóÁ½¸öÊıÖ®ºÍ
+	result = evaluates(value1, op1, value2);      //æœ€åä¸¤ä¸ªæ•°ä¹‹å’Œ
 
-	printf("½á¹ûÎª%lf\n", result);
+	printf("ç»“æœä¸º%lf\n", result);
 	return 0;
 }
 
